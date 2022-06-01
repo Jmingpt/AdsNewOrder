@@ -5,7 +5,7 @@ from module.report_transformation import report_trans
 from module.dataframe_excel import to_excel
 
 def run():
-    st.set_page_config(page_title="UQMY AdsNewOrder", page_icon=":airplane:")
+    st.set_page_config(page_title="UQMY AdsNewOrder", page_icon="📈")
     st.title("UQMY AdsNewOrder")
     
     uploaded_files = st.file_uploader("Choose a .xlsx/.csv file", accept_multiple_files=True)
