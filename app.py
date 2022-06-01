@@ -8,7 +8,7 @@ def run():
     st.set_page_config(page_title="UQMY AdsNewOrder", page_icon="📈")
     st.title("UQMY AdsNewOrder")
     
-    uploaded_files = st.file_uploader("Choose a .xlsx/.csv file", accept_multiple_files=True)
+    uploaded_files = st.file_uploader("Upload your files (fb2, fb3, ga, gads)", accept_multiple_files=True)
     
     if uploaded_files:
         for f in uploaded_files:
