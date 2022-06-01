@@ -1,6 +1,7 @@
 numpy==1.22.4
 openpyxl==3.0.10
 pandas==1.4.2
+protobuf==3.19.4
 pyxlsb==1.0.9
 streamlit==1.9.0
 watchdog==2.1.8
