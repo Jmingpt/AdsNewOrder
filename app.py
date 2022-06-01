@@ -13,6 +13,7 @@ def run():
     if uploaded_files:
         for f in uploaded_files:
             if str(f.name).startswith("ga_"):
+                excel_name = "_".join([str(elem) for elem in str(f.name).split(".")[0].split("_")[2:6]])
                 bytes_data = f.read()
                 s = str(bytes_data, 'utf-8')
                 data = StringIO(s)
@@ -70,7 +71,7 @@ def run():
         df_xlsx = to_excel(df_result)
         st.download_button(label='Download as Excel Workbook', 
                             data=df_xlsx, 
-                            file_name= 'report_result.xlsx')
+                            file_name= '{}.xlsx'.format(excel_name))
     else:
         pass
     
