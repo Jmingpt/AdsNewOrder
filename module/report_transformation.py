@@ -64,15 +64,34 @@ def report_trans(df_fb, df_ga, df_gads):
     source = []
     campaign = []
     for tag in df_fb['URL tags']:
-        if tag == "":
+        if tag != 'No url tag':
             temp = tag.split('&')
-            for i in temp:
-                if 'medium' in i:
-                    medium.append(i.split('=')[1])
-                elif 'source' in i:
-                    source.append(i.split('=')[1])
-                elif 'campaign' in i:
-                    campaign.append(i.split('=')[1])
+            if len(temp) <= 5:
+                for i in temp:
+                    if 'medium' in i:
+                        medium.append(i.split('=')[1])
+                    elif 'source' in i:
+                        source.append(i.split('=')[1])
+                    elif 'campaign' in i:
+                        campaign.append(i.split('=')[1])
+            else:
+                corr_camp = []
+                for j in temp:
+                    if j.startswith('utm_campaign') or not j.startswith('utm_'):
+                        corr_camp.append(j)
+
+                new_camp = "&".join(corr_camp)
+                del temp[2]
+                del temp[2]
+                temp.append(new_camp)
+                for k in temp:
+                    if 'medium' in k:
+                        medium.append(k.split('=')[1])
+                    elif 'source' in k:
+                        source.append(k.split('=')[1])
+                    elif 'campaign' in k:
+                        campaign.append(k.split('=')[1])
+                        
         else:
             medium.append('No url tag')
             source.append('No url tag')
