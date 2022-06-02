@@ -65,6 +65,8 @@ def run():
             except:
                 df_fb = df_fb2
                 
+        df_fb['URL tags'] = df_fb['URL tags'].fillna('No url tag')
+                
         df_result = report_trans(df_fb, df_ga, df_gads)
         st.title("Result:")
         st.write(df_result)
