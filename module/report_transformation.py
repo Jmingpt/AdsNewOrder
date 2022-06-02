@@ -28,6 +28,8 @@ def detail(campaign):
         return '3-Retargeting'
     elif 'Prospecting' in campaign:
         return '4-Non-retargeting'
+    elif 'prospecting' in campaign:
+        return '4-Non-retargeting'
     else:
         return '2-Non-brand keywords'
 
