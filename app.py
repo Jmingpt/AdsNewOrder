@@ -71,7 +71,7 @@ def run():
         df_xlsx = to_excel(df_result)
         st.download_button(label='Download as Excel Workbook', 
                             data=df_xlsx, 
-                            file_name= '{}.xlsx'.format(excel_name))
+                            file_name= 'UQMY_AdsNewOrder_{}.xlsx'.format(excel_name))
     else:
         pass
     
